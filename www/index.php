@@ -38,9 +38,6 @@ $url = '';
 if (isset($req_url)) {
   $url = htmlspecialchars($req_url);
 }
-if (!strlen($url)) {
-    $url = 'Enter a Website URL';
-}
 $connectivity = parse_ini_file('./settings/connectivity.ini', true);
 if (isset($_REQUEST['connection']) && isset($connectivity[$_REQUEST['connection']])) {
   // move it to the front of the list
@@ -150,7 +147,7 @@ $loc = ParseLocations($locations);
                 </ul>
                 <div id="analytical-review" class="test_box">
                     <ul class="input_fields">
-                        <li><input type="text" name="url" id="url" value="<?php echo $url; ?>" class="text large" onfocus="if (this.value == this.defaultValue) {this.value = '';}" onblur="if (this.value == '') {this.value = this.defaultValue;}"></li>
+                        <li><input type="text" name="url" id="url" class="text large" placeholder="Enter a Website URL"></li>
                         <li>
                             <label for="location">Test Location</label>
                             <select name="where" id="location">
